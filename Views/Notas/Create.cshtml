@@ -1,0 +1,34 @@
+@model RegistroAlumnos.Models.Nota
+
+<h2>Asignar Nota</h2>
+
+<p>
+    <strong>Alumno:</strong> @ViewBag.Alumno.Nombre @ViewBag.Alumno.Apellido <br />
+    <strong>Curso:</strong> @ViewBag.Curso.Nombre
+</p>
+
+<form asp-action="Create" method="post">
+    @Html.AntiForgeryToken()
+
+    <input type="hidden" asp-for="AlumnoId" />
+    <input type="hidden" asp-for="CursoId" />
+
+    <div class="mb-3">
+        <label asp-for="Valor" class="form-label">Nota (1 a 7)</label>
+        <input asp-for="Valor" class="form-control" step="0.1" />
+        <span asp-validation-for="Valor" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success">
+        Guardar Nota
+    </button>
+
+    <a asp-controller="Cursos"
+       asp-action="Details"
+       asp-route-id="@Model.CursoId"
+       class="btn btn-secondary">
+        Cancelar
+    </a>
+</form>
+
+<div asp-validation-summary="All" class="text-danger mt-2"></div>

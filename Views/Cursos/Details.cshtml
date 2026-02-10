@@ -1,0 +1,83 @@
+@model RegistroAlumnos.Models.Curso
+
+<h2>@Model.Nombre</h2>
+<p class="text-muted">@Model.Descripcion</p>
+
+<hr />
+
+<a asp-controller="Inscripciones"
+   asp-action="Create"
+   asp-route-cursoId="@Model.Id"
+   class="btn btn-success mb-3">
+    Inscribir alumno
+</a>
+
+<h4>Alumnos inscritos</h4>
+
+@if (Model.Inscripciones == null || !Model.Inscripciones.Any())
+{
+    <p>No hay alumnos inscritos en este curso.</p>
+}
+else
+{
+    <table class="table table-striped align-middle">
+        <thead>
+            <tr>
+                <th>Alumno</th>
+                <th>Email</th>
+                <th>Fecha de inscripción</th>
+                <th>Nota</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            @foreach (var inscripcion in Model.Inscripciones)
+        {
+            var nota = Model.Notas.FirstOrDefault(n =>
+            n.AlumnoId == inscripcion.AlumnoId &&
+            n.CursoId == Model.Id
+        );
+
+    <tr>
+        <td>
+            @inscripcion.Alumno.Nombre @inscripcion.Alumno.Apellido
+        </td>
+
+        <td>@inscripcion.Alumno.Email</td>
+
+        <td>@inscripcion.FechaInscripcion.ToShortDateString()</td>
+
+        <td>
+            @if (nota != null)
+            {
+                <span class="badge bg-success">@nota.Valor</span>
+            }
+            else
+            {
+                <span class="text-muted">Sin nota</span>
+            }
+        </td>
+
+        <td>
+            <a asp-controller="Notas"
+                asp-action="@(nota == null ? "Create" : "Edit")"
+                asp-route-id="@(nota?.Id)"
+                asp-route-cursoId="@Model.Id"
+                asp-route-alumnoId="@inscripcion.AlumnoId"
+                class="btn btn-primary btn-sm">
+                @(nota == null ? "Asignar nota" : "Editar nota")
+            </a>
+        </td>
+    </tr>
+}
+</tbody> 
+       
+       
+
+    </table>
+}
+
+<a asp-action="Index" class="btn btn-secondary mt-3">
+    Volver a Cursos
+</a>

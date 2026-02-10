@@ -1,0 +1,17 @@
+@model RegistroAlumnos.Models.Curso
+
+<h2>Eliminar Curso</h2>
+
+<h4>¿Estás seguro que deseas eliminar este curso?</h4>
+
+<div>
+    <strong>@Model.Nombre</strong>
+</div>
+
+<form asp-action="Delete" method="post">
+    @Html.AntiForgeryToken()
+    <input type="hidden" asp-for="Id" />
+
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

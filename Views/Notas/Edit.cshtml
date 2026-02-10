@@ -1,0 +1,31 @@
+@model RegistroAlumnos.Models.Nota
+
+<h2>Editar Nota</h2>
+
+<form asp-action="Edit" method="post">
+    @Html.AntiForgeryToken()
+    <input type="hidden" asp-for="Id" />
+    <input type="hidden" asp-for="AlumnoId" />
+    <input type="hidden" asp-for="CursoId" />
+
+    <div class="mb-3">
+        <label asp-for="Valor" class="form-label">Nota (1 a 7)</label>
+        <input asp-for="Valor" class="form-control" step="0.1" />
+        <span asp-validation-for="Valor" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success">Guardar cambios</button>
+
+    <button type="submit"
+            formaction="@Url.Action("Delete","Notas", new { id = Model.Id })"
+            class="btn btn-danger ms-2">
+        Eliminar nota
+    </button>
+
+    <a asp-controller="Cursos"
+       asp-action="Details"
+       asp-route-id="@Model.CursoId"
+       class="btn btn-secondary ms-2">
+        Cancelar
+    </a>
+</form>

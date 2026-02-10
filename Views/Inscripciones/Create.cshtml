@@ -1,0 +1,38 @@
+@model RegistroAlumnos.Models.Inscripcion
+
+<h2>Inscribir Alumno en Curso</h2>
+
+<form asp-action="Create" method="post">
+    @Html.AntiForgeryToken()
+
+    <div class="mb-3">
+        <label class="form-label">Alumno</label>
+        <select asp-for="AlumnoId"
+                class="form-control"
+                asp-items="ViewBag.AlumnoId">
+            <option value="">-- Seleccione Alumno --</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Curso</label>
+        <select class="form-control" disabled
+                asp-items="ViewBag.CursoId">
+        </select>
+
+        <input type="hidden" asp-for="CursoId" />
+    </div>
+
+    <button type="submit" class="btn btn-success">
+        Inscribir
+    </button>
+
+    <a asp-controller="Cursos"
+       asp-action="Details"
+       asp-route-id="@Model.CursoId"
+       class="btn btn-secondary">
+        Cancelar
+    </a>
+</form>
+
+<div asp-validation-summary="All" class="text-danger mt-2"></div>
