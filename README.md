@@ -35,6 +35,6 @@ dotnet run
 ### Asignación de nota / Edicion de nota
 ![Asignar nota](screenshots/AsignarEditarNota.png)
 
+```
 
 
-dotnet run
