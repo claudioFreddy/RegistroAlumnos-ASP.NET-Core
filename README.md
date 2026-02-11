@@ -19,11 +19,12 @@ Sistema académico para administrar:
 ✅ Asignación y edición de notas  
 ...
 
+```md
 ## Cómo Ejecutar
 
 ```bash
 dotnet run
-```
+
 
 ## 📸 Capturas de Pantalla
 
