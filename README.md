@@ -1,5 +1,3 @@
-<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/9c284457-4514-4ded-8e21-981d5aada486" /># Registro de Alumnos - ASP.NET Core MVC
-
 Sistema académico para administrar:
 - Alumnos
 - Cursos
