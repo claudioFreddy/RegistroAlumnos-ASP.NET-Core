@@ -23,3 +23,18 @@ Sistema académico para administrar:
 
 ```bash
 dotnet run
+
+## 📸 Capturas de Pantalla
+
+### Listado de Cursos
+![Listado de cursos](screenshots/cursos.png)
+
+### Alumnos inscritos en un curso
+![Alumnos por curso](screenshots/alumnosCurso.png)
+
+### Asignación de nota / Edicion de nota
+![Asignar nota](screenshots/AsignarEditarNota.png)
+
+
+
+dotnet run
