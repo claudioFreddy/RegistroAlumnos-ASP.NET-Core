@@ -1,4 +1,4 @@
-# Registro de Alumnos - ASP.NET Core MVC
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/9c284457-4514-4ded-8e21-981d5aada486" /># Registro de Alumnos - ASP.NET Core MVC
 
 Sistema académico para administrar:
 - Alumnos
@@ -23,6 +23,7 @@ Sistema académico para administrar:
 
 ```bash
 dotnet run
+```
 
 ## 📸 Capturas de Pantalla
 
@@ -35,6 +36,6 @@ dotnet run
 ### Asignación de nota / Edicion de nota
 ![Asignar nota](screenshots/AsignarEditarNota.png)
 
-```
+
 
 
