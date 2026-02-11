@@ -24,7 +24,7 @@ Sistema académico para administrar:
 
 ```bash
 dotnet run
-
+```
 
 ## 📸 Capturas de Pantalla
 
